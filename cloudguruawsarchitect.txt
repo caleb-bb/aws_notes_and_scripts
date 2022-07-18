@@ -120,7 +120,9 @@
 
      def LATENCY: latency is the time that passes between a user request and the resulting response.
 
-	 def LAMBDA: lets you run code without a server, kind of like an anonymous function is a lambda. The point of this, i think, is for doing really simple stuff that you don't wanna spin up a full-blown server for. Lambda will execute the same code repeatedly in respnse to events, e.g. A timer going off (which is basically a scheduled job). Lambda is fiendishly cheap: 128mb ram billed by the millisecond, triggered 0 million times per month, would cost less than $12. Lambda bills by the millisecond.
+	 def LAMBDA: lets you run code without a server, kind of like an anonymous function is a lambda. Lambda will execute the same code repeatedly in respnse to events, e.g. A timer going off (which is basically a scheduled job). Lambda is fiendishly cheap: 128mb ram billed by the millisecond, triggered 0 million times per month, would cost less than $12. Lambda bills by the millisecond. A lambda "function" is just all the code you wrote that went into the lambda. With lambda, you are only responsible for your code; unlike EC2 instances, you are not responsible for anything server-related.
+
+      def LAMBDA PRICING: With lambda, you are only responsible for your code; unlike EC2 instances, you are not responsible for anything server-related. lambda is billed based on duration and number of requests. You pay for the time from your code begins until the time it terminates, no more. You're not billed if it's not running. A "request" is defined as the number of times execution is started. Lambda gives one million free requests each month, even after the free tier trial ends. So lambda always has a little bit of free to it, or "always free".
 
 	 def LIGHTSAIL: a platform for building cloud-based websites and apps.
 

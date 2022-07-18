@@ -43,6 +43,7 @@ THINGS TO REMEMBER BEFORE EXAM:
     def ec2:
     def edge location
     def high availability
+    def lambda
     def load balancing
     def region
     def root user
