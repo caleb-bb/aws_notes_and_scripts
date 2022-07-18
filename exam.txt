@@ -1,0 +1,45 @@
+The AWS CCP exam is primarily about understanding. I'm still going to do the labs, of course, and put extra time in to use the CLI, but this is primarily about knowledge not praxis for the first exam. One shoulde undestand:
+    1. AWS Cloud Concepts (how it all works)
+    2. Security and Compliance within the AWS Cloud (don't be stupid)
+    3. The core AWS services (the important stuff like S3 and EC2)
+    4. The economics of the cloud, i.e. how you get billed and for what.
+
+Things you DON'T do for the CCP include:
+       1. Coding
+       2. Designing cloud architecture
+       3. Troubleshooting
+       4. Implementation
+       5. Migration
+       6. Load and performance testing
+       7. Business applications, e.g. Alexa or Chime
+
+In other words, the CCP is purely a knowledge cert. It does not assume or prove that you can actually DO anything.
+
+If a question has FOUR answers, then there is only one correct answer.
+If a question has FIVE answers, then there are at least two correct answers.
+
+They try to trick you with right-sounding answers that are actually wrong. These are called distractors. Read carefully.
+
+There are 50 questions that affect your score, and 15 that don't. You have no way of knowing which are which so just get them all right.
+
+The scoring system is wonky and not worth understanding. Just get all the questions right and do all the practice tests.
+
+There are four domain areas:
+      1. Cloud Concepts. This covers the AWS cloud value prop, cloud economics, and cloud architecture design principles. 26% of the questions come from this category
+      2. Security and Compliance. Security and compliance defines the shared responsibility model, security and compliance concepts, and access management capabilities. 25% of questions come from this category.
+      3. Technology. This covers methods of deployments and operations, global infrastructure, AWS services, and technology support. 33% of the questions come from this category.
+      4. Billing and Pricing. Billing and pricing covers comparing pricing models, account structures, billing, pricing, and billing support resources. 16% of questions come from this category.
+
+Cloud computing breaks down into compute (EC2, Lambda), networking (VPC, direct connect), storage (S3, EBS), analytics (athena, redshift), development (cloud9, codecommit), security (IAM, macie), databases (RDS, dynamodb)
+
+There is a very important whitepaper called Overview of Amazon Web Services. This is a full list of AWS services. 72 pages. Read and take notes! Goal: rewrite the entire whitepaper and write a small app that will quiz you on it.
+
+THINGS TO REMEMBER BEFORE EXAM:
+    def availability zone
+    def cli
+    def cloud deployment models
+    def edge location
+    def high availability
+    def region
+    def root user
+    def six advantages

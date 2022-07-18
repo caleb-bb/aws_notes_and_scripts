@@ -1,0 +1,15 @@
+#!/bin/bash
+input="exam.txt"
+flag=0
+
+while IFS= read -r line
+do
+    if [[ $flag == 1 ]]
+    then
+        grep -i "$line" cloudguruawsarchitect.txt
+    fi
+    if [[ $line == "THINGS TO REMEMBER"* ]]
+    then
+        flag=1
+    fi
+done < "$input"
