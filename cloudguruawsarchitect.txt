@@ -1,8 +1,12 @@
      def AGILITY: things go faster
 
+     def AMI: Amazon Machine Image. This is the "blueprint" for the VM we're gonna spin up in the cloud. An AMI specifies what operating system the VM will have and what software will be installed thereon.
+
      def ARN: amazon resource name. Every resource has an arn.
 
 	 def AURORA: a mysql and postgres compatible cloud db
+
+      def AUTO SCALING: auto scaling lets us add and remove ec instances based on changing need and demand. Auto scaling is horizontal, meaning it adds more instances, as opposed to vertical scaling, which changes the power of an instance.
 
 	 def AVAILABILITY ZONE: a collection of one or more data centers. An availability zone is entirely contained in one region.
 
@@ -52,7 +56,19 @@
 
 	 def EBS: elastic block storage. A service for cloud-based block storage. Ec2 uses this to store things.
 
-	 def EC2: a virtual machine in the cloud. Ec2 is resizeable. Ec2 spot is a cheaper version of ec2. Ec2 auto scaling is a service that automatically adds and removes compute based on demand. Ec2 is a fancied-up way to spell ecc, which is elastic compute cloud. This lets you rent virtual machines based on various criteria: cpu, memory, storage, type, speed. These can be optimized for storage, ram, whatever you need. Ec2 is pay-as-you-go by the hour or second by the machine. So running a single ec2 instance for 24 hours is equivalent to running 24 ec2 instances for 1 hour each at the same time.
+	 def EC2: a virtual machine in the cloud. Fundamentally there to deploy apps and dbs. Ec2 is a fancied-up way to spell ecc, which is elastic compute cloud. This lets you rent virtual machines based on various criteria: cpu, memory, storage, type, speed. These can be optimized for storage, ram, whatever you need. Ec2 is pay-as-you-go by the hour or second by the machine. So running a single ec2 instance for 24 hours is equivalent to running 24 ec2 instances for 1 hour each at the same time. You can spin up an EC2 instance using an AMI, or Amazon Machine Image. A free-tier AWS account grants 750 free compute hours per month which, of course, is 24 * 31 so you can run a single EC2 instance constantly. EC2 instances can be accessed via SSH and the console. There is also a thing called EC2 instance connect, which lets you use IAM policies to control SSH access to your EC2 instances. EC2 instances can also be managed using AWS Systems Manager. To connect to an EC2 instance via SSH, we must first generate a key pair, then connect via SSH. The private key goes on our local machine and is used to encrypt our messages to the EC2 instance, which uses the public key to decrypt them. In this case, the private key provides nonrepudiation because nobody else can send messages decryptable via the public key.
+
+      def EC2 PRICING - DEDICATED HOSTS: With Dedicated Hosts, we actually rent a physical server. We use Dedicated Hosts when a) we're using server-bound software licensing. Software has a server-bound license when it knows what physical machine it's on and will only activate on the right machine, b) we have regulatory or corporate compliance requirements around tenancy model, which is a fancy way of saying that we have bureaucratic reasons for needing to be on one physical machine. We can save up to 70% on On Demand pricing. We can bring our per-socket, per-core, or per-vm software licenses. There is no multi-tenancy, so only we get to use the server. A dedicated host is a physical server, whereas a dedicated instance is a software resource.
+
+
+      def EC2 PRICING - ON DEMAND: This is a fixed price, billed by the second. You pay for each second you're using compute. We use On Demand instances when a) We care about low cost without any upfront payment or long-term commitment, b) Our application have unpredictable workloads that must not be interrupted, c) Our apps are still under development and d) Our workloads will not last longer than one year. With On Demand, we can reserve capacity whether or not we run the instance.
+
+      DEF EC2 PRICING - RESERVED INSTANCES: This is where we commit to a certain instance type in a certain region for a period of one or three years. We use Reserved Instances when a) Our application has steady state usage so that it makes sense for us to commit, b) We can pay money up front to receive a discount on On Demand pricing, and c) our application requires a capacity reservation. We can save up to 75% on On Demand pricing with Reserved Instances, which requires a contract. We can pay All Upfront, Partial Upfront, and No Upfront, with more upfront leading to a bigger discount.
+
+      def  EC2 PRICING - SAVINGS PLAN: this lets us commit to compute usage (rather than a host or instance) for 1 or 3 years. We use Savings Plan when a) we want to lower our bill across multiple compute services and b) we want the flexibility to change compute services, instance types, operating systems, or regions. We can save up to 72% off of On Demand pricing. Savings PLan does not provide a capacity reservation, though.
+
+      def EC2 PRICING - SPOT: Spot instances let us take advantage of unused EC2 capacity. Our request is fulfilled only if capacity is available. We use Spot instances when a) we are not worried about when our application will start or stop, b) Our workloads can be interrupted, and c) Our application is only feasible at very low compute prices. We can save up to 90% off of On Demand prices, and we pay whatever spot price is being charged at the beginning of the hour. Spot is the cheapest EC2 Pricing option.
+
 
 	 def ECR: elastic container registry. This lets you store, manage, and deploy container images.
 
@@ -66,7 +82,7 @@
 
      def ELASTICITY: you can grow and shrink on demand. This removes the need to plan ahead with how much capacity you need. You can provision what you need and then grow and shrink on demand. A service with elastic in its name has elasticity.
 
-	 def ELASTIC load balancing: automatically distribute network traffic across a pool of resources.
+	 def ELASTIC load balancing: automatically distribute network traffic across a pool of resources. We can use a load balancer, for example, to distribute traffic over a pool of EC2 instances.
 
 	 def ELASTICACHE: cloud-based data store service for reddis and memcachedb i.e. In-memory data. One way to use an in-memory data store is for caching, i.e. Keeping recently-requested things in memory. Elasticache lives between your website and your db to act as a ready-to-hand source of frequently-requested data.
 
@@ -108,7 +124,7 @@
 
 	 def LIGHTSAIL: a platform for building cloud-based websites and apps.
 
-     def LOAD BALANCER: automatically distributes load over resources.
+     def LOAD BALANCING: automatically distributes load over resources. There are four types: classic, application, gateway, and network.
 
      def LOOKOUT: detect unexpected changes and identify root causes.
 
@@ -169,6 +185,8 @@
 	 def STATEMENT: if you look at the json definition of a permissions policy, the statement is a map containing all the relevant things that will be applies. For example, if the resource key as a value of *, then the policy will be applied to all resources. We might see a pattern like action: a, resource: b, effect: c, which says that action a is subject to effect c for resource b.
 
 	 def STORAGE GATEWAY: a way to allow on-premise access to cloud storage. This includes file gateway, which lets us program our apps to store files remotely even if they're set up to only put things on disk. There is also tape gateway. This presents a virtual tape library on your system, which can be used to migrate data if you have anything stored on magnetic tape. Fially, we have volume gateway. Volume gateway is block storage that can run in cached mode or stored mode. In cached mode, your data is mostly stored in s3 with the most frequently accessed data being stored locally. In stored mode, everything is stored locally, and also asynchronously backed up to s3.
+
+      def SSH: Secure SHell. We use this with a key pair to access an EC2 instance.
 
 	 def SYSTEMS manager: optimize performance and security while managing a large amount of systems.
 

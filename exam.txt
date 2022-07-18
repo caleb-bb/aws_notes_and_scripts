@@ -36,10 +36,15 @@ There is a very important whitepaper called Overview of Amazon Web Services. Thi
 
 THINGS TO REMEMBER BEFORE EXAM:
     def availability zone
+    def auto scaling
     def cli
     def cloud deployment models
+    def ec2 pricing - .*
+    def ec2:
     def edge location
     def high availability
+    def load balancing
     def region
     def root user
     def six advantages
+    def ssh

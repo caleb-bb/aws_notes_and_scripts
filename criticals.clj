@@ -2,7 +2,7 @@
 
 (def full-glossary-text (slurp "cloudguruawsarchitect.txt"))
 (def full-exam-text (slurp "exam.txt"))
-(defn match-line-from-glossary [line] (re-find (re-pattern (str "(?i)(.*)" line "(.*)")) full-glossary-text))
+(defn match-line-from-glossary [line] (re-seq (re-pattern (str "(?i)(.*)" line "(.*)")) full-glossary-text))
 (defn print-critical-concepts []
   (as-> full-exam-text f
   (re-seq #" def .*" f)
