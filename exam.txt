@@ -37,15 +37,25 @@ There is a very important whitepaper called Overview of Amazon Web Services. Thi
 THINGS TO REMEMBER BEFORE EXAM:
     def availability zone
     def auto scaling
+    def batch
     def cli
     def cloud deployment models
+    def ebs
     def ec2 pricing - .*
     def ec2:
     def edge location
+    def efs
+    def fargate
     def high availability
+    def instance store
     def lambda
+    def lightsail
     def load balancing
+    def outposts
     def region
     def root user
+    def s3:
+    def s3 storage classes
     def six advantages
     def ssh
+    def storage gateway
