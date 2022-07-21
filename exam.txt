@@ -40,22 +40,33 @@ THINGS TO REMEMBER BEFORE EXAM:
     def batch
     def cli
     def cloud deployment models
+    def cloud9
+    def cloudformation
+    def codecommit
+    def codedeploy
+    def codepipeline
+    def comprehend
     def ebs
     def ec2 pricing - .*
     def ec2:
     def edge location
     def efs
+    def elastic beanstalk
     def fargate
     def high availability
     def instance store
     def lambda
     def lightsail
     def load balancing
+    def opsworks
     def outposts
     def region
+    def rekognition
     def root user
+    def route53
     def s3:
     def s3 storage classes
+    def site-to-site vpn
     def six advantages
     def ssh
     def storage gateway

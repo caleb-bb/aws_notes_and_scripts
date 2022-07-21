@@ -1,221 +1,275 @@
-     def AGILITY: things go faster
+    def AGILITY: things go faster
 
-     def AMI: Amazon Machine Image. This is the "blueprint" for the VM we're gonna spin up in the cloud. An AMI specifies what operating system the VM will have and what software will be installed thereon.
+    def AMI: Amazon Machine Image. This is the "blueprint" for the VM we're gonna spin up in the cloud. An AMI specifies what operating system the VM will have and what software will be installed thereon.
 
-     def ARN: amazon resource name. Every resource has an arn.
+    def API GATEWAY: Share data between systems and integrate with services like lambda.
 
-	 def AURORA: a mysql and postgres compatible cloud db
+    def ARN: amazon resource name. Every resource has an arn.
 
-      def AUTO SCALING: auto scaling lets us add and remove ec instances based on changing need and demand. Auto scaling is horizontal, meaning it adds more instances, as opposed to vertical scaling, which changes the power of an instance.
+    def ATHENA: a query service. Analyze S3 data using SQL. Pay per query. Serverless.
 
-	 def AVAILABILITY ZONE: a collection of one or more data centers. An availability zone is entirely contained in one region.
+    def AURORA: a mysql and postgres compatible cloud db
 
-      def BACKUP: manages backups. We can schedule backups from existing systems. Backup integrates with EC2, EBS, EFS, and other Amazon services.
+    def AUTO SCALING: auto scaling lets us add and remove ec instances based on changing need and demand. Auto scaling is horizontal, meaning it adds more instances, as opposed to vertical scaling, which changes the power of an instance.
 
-      def BATCH: Allows you to process large workloads in small chunks, or batches. It's typically used for longer running jobs. You can run thousands of smaller batch processing jobs and instances will be dynamically provisioned based on volume.
+    def AVAILABILITY ZONE: a collection of one or more data centers. An availability zone is entirely contained in one region.
 
-	 def BLOCK STORAGE: everything is broken into equally-sized blocks of data and stored in raw volumes. This form of storage is less convenient for humans, but much more convenient for computers, and is frequently used by server-based operating systems. Databases and email servers are likely to use block storage.
+    def BACKUP: manages backups. We can schedule backups from existing systems. Backup integrates with EC2, EBS, EFS, and other Amazon services.
 
-	 def BUDGET: exactly what it sounds like.
+    def BATCH: Allows you to process large workloads in small chunks, or batches. It's typically used for longer running jobs. You can run thousands of smaller batch processing jobs and instances will be dynamically provisioned based on volume.
 
-     def CAPEX: capital expenditures. A capital expenditure is an upfront purchase toward a fixed asset. You pay $3000 and get a server. That's a capital expenditure.
+    def BLOCK STORAGE: everything is broken into equally-sized blocks of data and stored in raw volumes. This form of storage is less convenient for humans, but much more convenient for computers, and is frequently used by server-based operating systems. Databases and email servers are likely to use block storage.
 
-	 def CERTIFICATE MANAGER: provision, manage, and deploy ssl and tls certificates.
+    def BUDGET: exactly what it sounds like.
 
-	 def CLI: the aws cli configuration options, incl credentials. Lives in a .aws folder in a file called credentials. Fancy that. There's also a file called config that stores less sensitive configuration opts. Many features are rolled out to the CLI first. And many things are possible only through the CLI. This gives us "programmatic access." The CLI requires us to generate secret and access keys to configure it locally.
+    def CAPEX: capital expenditures. A capital expenditure is an upfront purchase toward a fixed asset. You pay $3000 and get a server. That's a capital expenditure.
 
-     def CLOUD DEPLOYMENT MODELS: There are three cloud deployment models. 1) Private cloud, aka on-premises. This does not offer the 6 advantages of cloud computing. 2) Public cloud, such as AWS, Azure, Google Cloud, etc. Provides all the advantages of cloud computing. 3) Hybrid cloud. A mix of 1 and 2. This is primarily used to store highly sensitive data on-prem and then serve the app via the cloud. It is powered by Direct Connect.
+    def CERTIFICATE MANAGER: provision, manage, and deploy ssl and tls certificates.
 
-	 def CLOUDFORMATION: model and provision all of your resources using code. This is an iac service that will allow you to use both json and yaml. This brings all the benefits of iac. For example, if we can create a text file that codes for our infrastructure and check it into a git repo, we effectively have versioning for our entire cloud infra. Cloudformation supports nested templates, which means we can have one master template that calls all the others. This gives us certain options, e.g. Localizing individual templates to different teams and having the master template to pull them all together. Cloudformation lets us use the same template in multiple regions which saves us from having to duplicate our infrastructure for different regions. When we create  stack, we can assign "tags" to it, which are key-value pairs. Tags let us keep track of certain information about the stack e.g. what team it belongs to or who created it. If you specify a logical resource without giving it an id, then cloudformation will happily generate a unique id using this structure: <stack name>-<logical resource name>-<randomly-generated UID>.
+    def CLI: the aws cli configuration options, incl credentials. Lives in a .aws folder in a file called credentials. Fancy that. There's also a file called config that stores less sensitive configuration opts. Many features are rolled out to the CLI first. And many things are possible only through the CLI. This gives us "programmatic access." The CLI requires us to generate secret and access keys to configure it locally.
 
-      def CLOUFFRONT: a CDN (content delivery network) that delivers data and applications globally and with low latency.
+    def CLOUD9: write code directly in web browser. Can be used with lambda.
 
-	 def CLOUDTRAIL: track api usage and user activity across all accounts.
+    def CLOUD HSM: hardware-based key storage.
 
-	 def CLOUDWATCH: observe services via metrics and logging. There are about 70 aws services that cloudwatch can deal with. It automatically collects all your services and displays them for you in graph form so you can see what is getting used, when, and how much. An example is instructive: suppose that you have an EC2 instance, and we want to protect it from SSH attacks. We can send out SSH login logs to CloudWatch, and then filter those logs only for failed logins. If those failed logins exceed a certain threshold, we can set an alarm to take some action we specify. We can also track our AWS spending on cloudwatch, to avoid exceeding certain amounts.
+    def CLOUDFRONT: whenever a client requests something from your website, it will access cloudfront first. Cloudfront will direct that traffic to the nearest available location. So if someone in timbuktu accesses your site, they'll be served via resources closer to timbuktu. Cloudfront also protects you when some jerk tries to ddos you. Cloudfront also offers lambda@edge, which lets you run lambdas near your clients.
 
-	 def COGNITO: manage identity inside applications
+    def CLOUD DEPLOYMENT MODELS: There are three cloud deployment models. 1) Private cloud, aka on-premises. This does not offer the 6 advantages of cloud computing. 2) Public cloud, such as AWS, Azure, Google Cloud, etc. Provides all the advantages of cloud computing. 3) Hybrid cloud. A mix of 1 and 2. This is primarily used to store highly sensitive data on-prem and then serve the app via the cloud. It is powered by Direct Connect.
 
-     def CODEGURU: can help review code and spot places where it's expensive or using too much compute.
+    def CLOUDFORMATION: model and provision all of your resources using code. This is an iac service that will allow you to use both json and yaml. This brings all the benefits of iac. For example, if we can create a text file that codes for our infrastructure and check it into a git repo, we effectively have versioning for our entire cloud infra. Cloudformation supports nested templates, which means we can have one master template that calls all the others. This gives us certain options, e.g. Localizing individual templates to different teams and having the master template to pull them all together. Cloudformation lets us use the same template in multiple regions which saves us from having to duplicate our infrastructure for different regions. When we create  stack, we can assign "tags" to it, which are key-value pairs. Tags let us keep track of certain information about the stack e.g. what team it belongs to or who created it. If you specify a logical resource without giving it an id, then cloudformation will happily generate a unique id using this structure: <stack name>-<logical resource name>-<randomly-generated UID>.
 
-	 def CONFIG: record and evaluation configurations of your aws resources.
 
-	 def CONTAINER: think of a container as a little self-contained computer in which your program can run. It contains your code and all of the libraries it needs. This makes it possible to run your code without dealing with pesky conflicts arising from versions. The container's big benefit is that it guarantees the ability to run the code anywhere where containers can run and still work the same way.
+    def CLOUDFFRONT: a CDN (content delivery network) that delivers data and applications globally and with low latency.
 
-	 def CONTROL tower: set up and configure/control multi-account aws environment.
+    def CLOUDTRAIL: track api usage and user activity across all accounts.
 
-	 def CLOUD HSM: hardware-based key storage.
+    def CLOUDWATCH: observe services via metrics and logging. There are about 70 aws services that cloudwatch can deal with. It automatically collects all your services and displays them for you in graph form so you can see what is getting used, when, and how much. An example is instructive: suppose that you have an EC2 instance, and we want to protect it from SSH attacks. We can send out SSH login logs to CloudWatch, and then filter those logs only for failed logins. If those failed logins exceed a certain threshold, we can set an alarm to take some action we specify. We can also track our AWS spending on cloudwatch, to avoid exceeding certain amounts.
 
-	 def CLOUDFRONT: whenever a client requests something from your website, it will access cloudfront first. Cloudfront will direct that traffic to the nearest available location. So if someone in timbuktu accesses your site, they'll be served via resources closer to timbuktu. Cloudfront also protects you when some jerk tries to ddos you. Cloudfront also offers lambda@edge, which lets you run lambdas near your clients.
+    def CODEBUILD: Compile source, run tests, CI/CD, produce build artifacts to deploy.
 
-	 def DATA SYNC: upload stuff to the cloud really fast.
+    def CODECOMMIT: versioning tool similar to github.
 
-     def DEEPRACER: a self-driving car. It's a little robot car that you can train yourself. It's a good way to get started on understanding machine learning.
+    CODEDEPLOY: manages deployment of code to compute services in cloud or on prem. EC2, Fargate, Lambda, or on prem. Also maintains application uptime. Can eliminate downtime while rolling out new versions.
 
-	 def DOCUMENTDB: mongodb compatible document db
+    def CODEGURU: can help review code and spot places where it's expensive or using too much compute.
 
-	 def DIRECTORY SERVICE: implement and manage microsoft active directory.
+    def CODEPIPELINE: automates software release process. Integrates with Codebuild to run builds and unit tests. Integrates with CodeCommit to retrieve source. Integrates with CodeDeploy to deploy changes.
 
-     def DURABILITY: your data has long-term protection, meaning it will remain intact and won't become corrupted.
+    def CODESTAR: helps developers collaboratively work on development projects. Contains an issue tracking dashboard.
 
-	 def DYNAMO db: nosql db. Dynamodb is a key-value database service. Key-value dbs are less restrictive than relational dbs, in that all records must have the appropriate keys but need not all have the same attributes. Dynamodb works very well with serverless applications.
+    def COGNITO: manage identity inside applications
 
-	 def EBS: elastic block storage. A service for cloud-based block storage. Ec2 uses this to store things. A given EBS instance can be attached to, or removed from, an EC2 instance. Will persist data when the instance is not running. Can only be attached to one EC2 instance at a time, although one EC2 instance can have multiple EBS instances, sort of like a computer with multiple flash drives. EBS instances are tied to one availability zone, so you can't take an EBS intance off of an EC2 instance and put it on another EC2 based in another AZ.
+    def COMPREHEND: NLP
 
-	 def EC2: a virtual machine in the cloud. Fundamentally there to deploy apps and dbs. Ec2 is a fancied-up way to spell ecc, which is elastic compute cloud. This lets you rent virtual machines based on various criteria: cpu, memory, storage, type, speed. These can be optimized for storage, ram, whatever you need. Ec2 is pay-as-you-go by the hour or second by the machine. So running a single ec2 instance for 24 hours is equivalent to running 24 ec2 instances for 1 hour each at the same time. You can spin up an EC2 instance using an AMI, or Amazon Machine Image. A free-tier AWS account grants 750 free compute hours per month which, of course, is 24 * 31 so you can run a single EC2 instance constantly. EC2 instances can be accessed via SSH and the console. There is also a thing called EC2 instance connect, which lets you use IAM policies to control SSH access to your EC2 instances. EC2 instances can also be managed using AWS Systems Manager. To connect to an EC2 instance via SSH, we must first generate a key pair, then connect via SSH. The private key goes on our local machine and is used to encrypt our messages to the EC2 instance, which uses the public key to decrypt them. In this case, the private key provides nonrepudiation because nobody else can send messages decryptable via the public key.
+    def CONFIG: record and evaluation configurations of your aws resources.
 
-      def EC2 INSTANCE STORE: local storage, physically attached to a host computer, that cannot be removed. This provides ultra-low latency but does not persist data, i.e. the data vanished when the EC2 instance stops. Recommended for cases where we have temporary storage needs or where our storage is replicated across multiple EC2 instances.
+    def CONTAINER: think of a container as a little self-contained computer in which your program can run. It contains your code and all of the libraries it needs. This makes it possible to run your code without dealing with pesky conflicts arising from versions. The container's big benefit is that it guarantees the ability to run the code anywhere where containers can run and still work the same way.
 
-      def EC2 PRICING - DEDICATED HOSTS: With Dedicated Hosts, we actually rent a physical server. We use Dedicated Hosts when a) we're using server-bound software licensing. Software has a server-bound license when it knows what physical machine it's on and will only activate on the right machine, b) we have regulatory or corporate compliance requirements around tenancy model, which is a fancy way of saying that we have bureaucratic reasons for needing to be on one physical machine. We can save up to 70% on On Demand pricing. We can bring our per-socket, per-core, or per-vm software licenses. There is no multi-tenancy, so only we get to use the server. A dedicated host is a physical server, whereas a dedicated instance is a software resource.
+    def CONTROL tower: set up and configure/control multi-account aws environment.
 
+    def DATA PIPELINE: move data between services.
 
-      def EC2 PRICING - ON DEMAND: This is a fixed price, billed by the second. You pay for each second you're using compute. We use On Demand instances when a) We care about low cost without any upfront payment or long-term commitment, b) Our application have unpredictable workloads that must not be interrupted, c) Our apps are still under development and d) Our workloads will not last longer than one year. With On Demand, we can reserve capacity whether or not we run the instance.
+    def DATA SYNC: upload stuff to the cloud really fast.
 
-      DEF EC2 PRICING - RESERVED INSTANCES: This is where we commit to a certain instance type in a certain region for a period of one or three years. We use Reserved Instances when a) Our application has steady state usage so that it makes sense for us to commit, b) We can pay money up front to receive a discount on On Demand pricing, and c) our application requires a capacity reservation. We can save up to 75% on On Demand pricing with Reserved Instances, which requires a contract. We can pay All Upfront, Partial Upfront, and No Upfront, with more upfront leading to a bigger discount.
+    def DATABASE MIGRATION SERVICE: migrate dbs to or within AWS. Migrate on prem db to aws. Continuous data replication. Supports homogeneous (oracle to oracle) and heterogeneous (oracle to SQL server). Virtually no downtime.
 
-      def  EC2 PRICING - SAVINGS PLAN: this lets us commit to compute usage (rather than a host or instance) for 1 or 3 years. We use Savings Plan when a) we want to lower our bill across multiple compute services and b) we want the flexibility to change compute services, instance types, operating systems, or regions. We can save up to 72% off of On Demand pricing. Savings PLan does not provide a capacity reservation, though.
+    def DEEPRACER: a self-driving car. It's a little robot car that you can train yourself. It's a good way to get started on understanding machine learning.
 
-      def EC2 PRICING - SPOT: Spot instances let us take advantage of unused EC2 capacity. Our request is fulfilled only if capacity is available. We use Spot instances when a) we are not worried about when our application will start or stop, b) Our workloads can be interrupted, and c) Our application is only feasible at very low compute prices. We can save up to 90% off of On Demand prices, and we pay whatever spot price is being charged at the beginning of the hour. Spot is the cheapest EC2 Pricing option.
+    def DOCUMENT DB: mongodb compatible document db
 
+    def DIRECT CONNECT: Dedicated physical direct connection that connects your on prem data to AWS. The data travels over a private network and supports a hybrid environment. Basically, conencts your private cloud to the AWS cloud. Direct Connect can transfer large data sets directly to AWS and can bypass your usual ISP.
 
-	 def ECR: elastic container registry. This lets you store, manage, and deploy container images.
+    def DIRECTORY SERVICE: implement and manage microsoft active directory.
 
-	 def ECS: elastic container service. This is for deploying and scaling containers.
+    def DURABILITY: your data has long-term protection, meaning it will remain intact and won't become corrupted.
 
-	 def EFS: amazon elastic file system. A kind of file-based storage in the cloud. Scaleable, elastic. It has two storage modes: standard and infrequent access. We can set it up to move things to infrequent access automatically after a set amount of time. Basically, it lets us connect two systems via the network using our ec2 servers. We can think of it like a Dropbox for our EC2s. It can only be used on the Linux filesystem. EFS is accessible across different AZs within a single Region. We use it to lift-and-shift existing enterprise apps and we use it as a main directory for business-critical apps.
+    def DYNAMO db: nosql db. Dynamodb is a key-value database service. Key-value dbs are less restrictive than relational dbs, in that all records must have the appropriate keys but need not all have the same attributes. Dynamodb works very well with serverless applications.
 
-     def EDGE LOCATION: an edge location is like a miniature data center used only for caching content. Edge zones are made possible via cloudfront. They reduce latency and speed up your app.
+    def EBS: elastic block storage. A service for cloud-based block storage. Ec2 uses this to store things. A given EBS instance can be attached to, or removed from, an EC2 instance. Will persist data when the instance is not running. Can only be attached to one EC2 instance at a time, although one EC2 instance can have multiple EBS instances, sort of like a computer with multiple flash drives. EBS instances are tied to one availability zone, so you can't take an EBS intance off of an EC2 instance and put it on another EC2 based in another AZ.
 
-	 def EKR: elastic kubernetes service. Exactly what it sounds like.
+    def EC2: a virtual machine in the cloud. Fundamentally there to deploy apps and dbs. Ec2 is a fancied-up way to spell ecc, which is elastic compute cloud. This lets you rent virtual machines based on various criteria: cpu, memory, storage, type, speed. These can be optimized for storage, ram, whatever you need. Ec2 is pay-as-you-go by the hour or second by the machine. So running a single ec2 instance for 24 hours is equivalent to running 24 ec2 instances for 1 hour each at the same time. You can spin up an EC2 instance using an AMI, or Amazon Machine Image. A free-tier AWS account grants 750 free compute hours per month which, of course, is 24 * 31 so you can run a single EC2 instance constantly. EC2 instances can be accessed via SSH and the console. There is also a thing called EC2 instance connect, which lets you use IAM policies to control SSH access to your EC2 instances. EC2 instances can also be managed using AWS Systems Manager. To connect to an EC2 instance via SSH, we must first generate a key pair, then connect via SSH. The private key goes on our local machine and is used to encrypt our messages to the EC2 instance, which uses the public key to decrypt them. In this case, the private key provides nonrepudiation because nobody else can send messages decryptable via the public key.
 
-     def ELASTICITY: you can grow and shrink on demand. This removes the need to plan ahead with how much capacity you need. You can provision what you need and then grow and shrink on demand. A service with elastic in its name has elasticity.
+    def EC2 INSTANCE STORE: local storage, physically attached to a host computer, that cannot be removed. This provides ultra-low latency but does not persist data, i.e. the data vanished when the EC2 instance stops. Recommended for cases where we have temporary storage needs or where our storage is replicated across multiple EC2 instances.
 
-	 def ELASTIC load balancing: automatically distribute network traffic across a pool of resources. We can use a load balancer, for example, to distribute traffic over a pool of EC2 instances.
+    def EC2 PRICING - DEDICATED HOSTS: With Dedicated Hosts, we actually rent a physical server. We use Dedicated Hosts when a) we're using server-bound software licensing. Software has a server-bound license when it knows what physical machine it's on and will only activate on the right machine, b) we have regulatory or corporate compliance requirements around tenancy model, which is a fancy way of saying that we have bureaucratic reasons for needing to be on one physical machine. We can save up to 70% on On Demand pricing. We can bring our per-socket, per-core, or per-vm software licenses. There is no multi-tenancy, so only we get to use the server. A dedicated host is a physical server, whereas a dedicated instance is a software resource.
 
-	 def ELASTICACHE: cloud-based data store service for reddis and memcachedb i.e. In-memory data. One way to use an in-memory data store is for caching, i.e. Keeping recently-requested things in memory. Elasticache lives between your website and your db to act as a ready-to-hand source of frequently-requested data.
 
-      def FARGATE: serverless compute engine for containers. Serverless with automatic scaling.
+    def EC2 PRICING - ON DEMAND: This is a fixed price, billed by the second. You pay for each second you're using compute. We use On Demand instances when a) We care about low cost without any upfront payment or long-term commitment, b) Our application have unpredictable workloads that must not be interrupted, c) Our apps are still under development and d) Our workloads will not last longer than one year. With On Demand, we can reserve capacity whether or not we run the instance.
 
-	 def FILEBASED storage: the same kind of storage that your home computer uses. Stores files in a tree. This is convenient for a human dealing with small numbers of files but can quickly become a problem when we have a buttload of files.
+    DEF EC2 PRICING - RESERVED INSTANCES: This is where we commit to a certain instance type in a certain region for a period of one or three years. We use Reserved Instances when a) Our application has steady state usage so that it makes sense for us to commit, b) We can pay money up front to receive a discount on On Demand pricing, and c) our application requires a capacity reservation. We can save up to 75% on On Demand pricing with Reserved Instances, which requires a contract. We can pay All Upfront, Partial Upfront, and No Upfront, with more upfront leading to a bigger discount.
 
-	 def FIREWALL MANAGER: centrally manage firewall rules.
+    def  EC2 PRICING - SAVINGS PLAN: this lets us commit to compute usage (rather than a host or instance) for 1 or 3 years. We use Savings Plan when a) we want to lower our bill across multiple compute services and b) we want the flexibility to change compute services, instance types, operating systems, or regions. We can save up to 72% off of On Demand pricing. Savings PLan does not provide a capacity reservation, though.
 
-     def FORECAST: Build accurate forecasting models.
+    def EC2 PRICING - SPOT: Spot instances let us take advantage of unused EC2 capacity. Our request is fulfilled only if capacity is available. We use Spot instances when a) we are not worried about when our application will start or stop, b) Our workloads can be interrupted, and c) Our application is only feasible at very low compute prices. We can save up to 90% off of On Demand prices, and we pay whatever spot price is being charged at the beginning of the hour. Spot is the cheapest EC2 Pricing option.
 
-     def FRAUD DETECTOR: Idnetify potentially fraudulent online activities.
 
-	 def FSX: a windows-based system for file-based storage.
+    def ECR: elastic container registry. This lets you store, manage, and deploy container images.
 
-	 def GLOBAL: (of a service) applying across all regions. Instances are regional, but a global permission will apply regardless of where the instance is located. Permissions need not be global, but you can make them that way.
+    def ECS: elastic container service. This is for deploying and scaling containers.
 
-	 def GLOBAL accelerator: direct traffic through the aws global network to improve global application performance.
+    def EFS: amazon elastic file system. A kind of file-based storage in the cloud. Scaleable, elastic. It has two storage modes: standard and infrequent access. We can set it up to move things to infrequent access automatically after a set amount of time. Basically, it lets us connect two systems via the network using our ec2 servers. We can think of it like a Dropbox for our EC2s. It can only be used on the Linux filesystem. EFS is accessible across different AZs within a single Region. We use it to lift-and-shift existing enterprise apps and we use it as a main directory for business-critical apps.
 
-	 def GUARD DUTY: automatiacally detect threats.
+    def EDGE LOCATION: an edge location is like a miniature data center used only for caching content. Edge zones are made possible via cloudfront. They reduce latency and speed up your app.
 
-     def HIGH AVAILABILITY: Being deployed in multiple availability zones makes a system highly available. Highly available systems are designed to operate continuously without failure for a long time. These systems avoid loss of service by reducing or managing failures.
+    def EKR: elastic kubernetes service. Exactly what it sounds like.
 
-	 def IAM: securely manage access to aws account and resources. Manage who can access what in your aws accounts. Create users and groups. Allow or deny access via policies. Free service in all aws accounts. Two of iam's biggest features are users and roles. Iam is free with any aws account. The main account you log into your aws resources with is the root account, which you are given when you first register. An iam user is just a user that is not root, whose privileges are decided by whoever creates the iam user (the root account). Permissions can also be given to groups, and from there given to individual users by adding those users to the groups with the appropriate permissions. Policies are defined as json objects, although there's also a visual editor if you need it.
+    def ELASTICITY: you can grow and shrink on demand. This removes the need to plan ahead with how much capacity you need. You can provision what you need and then grow and shrink on demand. A service with elastic in its name has elasticity.
 
-	 def INLINE POLICY: a set of permissions assigned just to one user or one group, not like a re-usable managed policy.
+    def ELASTIC BEANSTALK: an orchestration service that provisions resources. It automatically handles the deployment and lets you monitor application health via a health dashboard. It handles provisioning, load balancing, and auto scaling.
 
-	 def INSPECTOR: analyze application security.
+    def ELASTIC load balancing: automatically distribute network traffic across a pool of resources. We can use a load balancer, for example, to distribute traffic over a pool of EC2 instances.
 
-	 def INSTANCE: a virtual machine in the cloud.
+    def ELASTICACHE: cloud-based data store service for reddis and memcachedb i.e. In-memory data. One way to use an in-memory data store is for caching, i.e. Keeping recently-requested things in memory. Elasticache lives between your website and your db to act as a ready-to-hand source of frequently-requested data.
 
-	 def IPV4: four three-digit numbers separated by a dot to create ip addresses. The ones that only work on private networks are the ones beginning with 10.0.0.1, 172.16-31, and 192.168. So you could have a private network and have a range of 10.0.0.0 to 10.0.0.255, which you can designate as 10.0.0.0/24.
+    def EMR: elastic map reduce. Lets you process large amounts of data. Analyze data using Hadoop. Works with big web frameworks.
 
-     def KENDRA: AI-powered personalized search with machine learning.
+    def ETL: Extract, translate, load
 
-	 def KEY MANAGEMENT service: store and manage encryption keys.
+    def FARGATE: serverless compute engine for containers. Serverless with automatic scaling.
 
-     def LATENCY: latency is the time that passes between a user request and the resulting response.
+    def FILEBASED storage: the same kind of storage that your home computer uses. Stores files in a tree. This is convenient for a human dealing with small numbers of files but can quickly become a problem when we have a buttload of files.
 
-	 def LAMBDA: lets you run code without a server, kind of like an anonymous function is a lambda. Lambda will execute the same code repeatedly in respnse to events, e.g. A timer going off (which is basically a scheduled job). Lambda is fiendishly cheap: 128mb ram billed by the millisecond, triggered 0 million times per month, would cost less than $12. Lambda bills by the millisecond. A lambda "function" is just all the code you wrote that went into the lambda. With lambda, you are only responsible for your code; unlike EC2 instances, you are not responsible for anything server-related.
+    def FIREWALL MANAGER: centrally manage firewall rules.
 
-      def LAMBDA PRICING: With lambda, you are only responsible for your code; unlike EC2 instances, you are not responsible for anything server-related. lambda is billed based on duration and number of requests. You pay for the time from your code begins until the time it terminates, no more. You're not billed if it's not running. A "request" is defined as the number of times execution is started. Lambda gives one million free requests each month, even after the free tier trial ends. So lambda always has a little bit of free to it, or "always free".
+    def FORECAST: Build accurate forecasting models.
 
-	 def LIGHTSAIL: all the resources you need to launch small projects. You can deploy preconfigured applications, such as WordPress websites, at the touch of a button. It has simple screens for people with no cloud experience. Includes a VM, SSD-based storage, DNS management, and a static IP. The fee is low and predictable, monthly, as low as $3.50.
+    def FRAUD DETECTOR: Idnetify potentially fraudulent online activities.
 
-     def LOAD BALANCING: automatically distributes load over resources. There are four types: classic, application, gateway, and network.
+    def FSX: a windows-based system for file-based storage.
 
-     def LOOKOUT: detect unexpected changes and identify root causes.
+    def GLOBAL: (of a service) applying across all regions. Instances are regional, but a global permission will apply regardless of where the instance is located. Permissions need not be global, but you can make them that way.
 
-	 def MACIE: discover and protect your sensitive data
+    def GLOBAL accelerator: direct traffic through the aws global network to improve global application performance.
 
-	 def MANAGED POLICY: a set of permissions pre-created either by aws or by an administrator for application to a user group.
+    def GLUE: ETL service, prepare and load data, help understand data better.
 
-	 def NFS: network file system. This allows you to connect to files that aren't on your system but are on your network.
+    def GUARD DUTY: automatiacally detect threats.
 
-     def OPEX: operating expenditures. You run your server every day and incur a cost from the electricity. That's an operating expense.
+    def HIGH AVAILABILITY: Being deployed in multiple availability zones makes a system highly available. Highly available systems are designed to operate continuously without failure for a long time. These systems avoid loss of service by reducing or managing failures.
 
-	 def ORGANIZATIONS: centrally manage and govern environments that span more than one account.
+    def IAM: securely manage access to aws account and resources. Manage who can access what in your aws accounts. Create users and groups. Allow or deny access via policies. Free service in all aws accounts. Two of iam's biggest features are users and roles. Iam is free with any aws account. The main account you log into your aws resources with is the root account, which you are given when you first register. An iam user is just a user that is not root, whose privileges are decided by whoever creates the iam user (the root account). Permissions can also be given to groups, and from there given to individual users by adding those users to the groups with the appropriate permissions. Policies are defined as json objects, although there's also a visual editor if you need it.
 
-	 def OBJECT STORAGE: storing files in objects, each of which has a unique address.
+    def INLINE POLICY: a set of permissions assigned just to one user or one group, not like a re-usable managed policy.
 
-	 def OPSWORKS: automate operations with chef and puppet.
+    def INSPECTOR: analyze application security.
 
-	 def OUTPOSTS: run amazon services on your own hardware. Supports workloads that must remain on-prem for reasons of latency or data sovereignty. AWS will deliver and install servers into your local data center. Used for a hybrid experience. Have access to cloud services and APIs to develop apps on-prem.
+    def INSTANCE: a virtual machine in the cloud.
 
-     def PERSONALIZE: give personalized recommendations.
+    def IPV4: four three-digit numbers separated by a dot to create ip addresses. The ones that only work on private networks are the ones beginning with 10.0.0.1, 172.16-31, and 192.168. So you could have a private network and have a range of 10.0.0.0 to 10.0.0.255, which you can designate as 10.0.0.0/24.
 
-	 def PRIVATELINK: provides private connections between vpcs and on-premises networks.
+    def KENDRA: AI-powered personalized search with machine learning.
 
-     def REKOGNITION: Analyze images and videos and extract meaning. Rekognition will take an image and return a list of things it thinks it sees in that image with confidence levels expressed as percentages. It can do content moderation for violent or adult imagery. It has a facial analysis feature, which can look at a face and say things about the person's mood. There's a celebrity recognition feature as well, and a face comparison feature to see if two faces match. It also lets you detect personal protective equipment, or ppe.
+    def KEY MANAGEMENT service: store and manage encryption keys.
 
-	 def RDS: set up and scale database engines. You can use mysql, maria, microsoft sql server, postgres, oracle, and aurora. This is a fully managed service, so you don't have to set up anything. Databases created with rds are scalable and can be used across zones. It lets you create read-only copies of your database in order to increase read throughput. Rds has automatic host replacement, so if any instance running your db fails, it is replaced automatically. You can stop your instances for up to seven days at a time to save money.
+    def KINESIS: analyze streaming data in real time, such as video and audio, clickstreams, and iot.
 
-	 def REDSHIFT: cloud data warehouse.
+    def LATENCY: latency is the time that passes between a user request and the resulting response.
 
-	 def REGION: A collection of availability zones localized to a geographic region. A region has at least two availability zones. North america, south america, europe, africa, middle east, and asia-pacific. You should set up resources in the region closest to your users. Most resources are tied to a specific region. A region has a friendly name and a code name, e.g. US East (Ohio) us-east-2.
+    def LAMBDA: lets you run code without a server, kind of like an anonymous function is a lambda. Lambda will execute the same code repeatedly in respnse to events, e.g. A timer going off (which is basically a scheduled job). Lambda is fiendishly cheap: 128mb ram billed by the millisecond, triggered 0 million times per month, would cost less than $12. Lambda bills by the millisecond. A lambda "function" is just all the code you wrote that went into the lambda. With lambda, you are only responsible for your code; unlike EC2 instances, you are not responsible for anything server-related.
 
-	 def RESOURCE: an instance of an amazon service.
+    def LAMBDA PRICING: With lambda, you are only responsible for your code; unlike EC2 instances, you are not responsible for anything server-related. lambda is billed based on duration and number of requests. You pay for the time from your code begins until the time it terminates, no more. You're not billed if it's not running. A "request" is defined as the number of times execution is started. Lambda gives one million free requests each month, even after the free tier trial ends. So lambda always has a little bit of free to it, or "always free".
 
-	 def ROLE: in aws iam, a role is similar to giving a user permissions. The difference is that both users and services can assume the role and take on whatever special permissions are granted.
+    def LEX: build chatbots with voice and text. LEX powers Alexa.
 
-     def ROOT USER: the root user is created when you first create an AWS account and is tied to the email address used to make the account. It should not be used for day-to-day activities. There are certain things that only root can do, such as deleting your account. Root should always be protected by MFA.
+    def LIGHTSAIL: all the resources you need to launch small projects. You can deploy preconfigured applications, such as WordPress websites, at the touch of a button. It has simple screens for people with no cloud experience. Includes a VM, SSD-based storage, DNS management, and a static IP. The fee is low and predictable, monthly, as low as $3.50.
 
-	 def ROUTE53: host your own managed dns. Costs 53 cents/domain/month. When we map an ip address to a domain name, we have to pick a routing policy. The standard policy is like a normal dns: user requests an ip for a domain name, gets an ip back. Simple. You can also use a weighted policy, where a certain proportion of users will get one ip while the rest of the users get another. This is one way to test out a new version of your website, for example. If one target of route53 is offline, it can shunt that traffic elsewhere. It can also check whether the ip address it responds with is actually healthy.
+    def LOAD BALANCING: automatically distributes load over resources. There are four types: classic, application, gateway, and network.
 
-	 def S3: a fancied-up way of writing sss, which stands for secret storage service. A way to store and retrieve stuff, basically. It uses object based storage where you can access a file so long as you have the id of that file. It's reliable because it stores multiple copies of the file in multiple places. S3 is region dependent, so s3 buckets are created inside of a particular region. Policies around permissions can be attached to s3 buckets and only apply to the things inside of or accessing those buckets. Each bucket is a top-level folder in s3. Each prefix is a folder in a bucket. An object is any item in an s3 bucket. S3 can also be programmed to serve simple websites by simply having a user connect directly to your S3 bucket. Security can be set at the level of the bucket or at the level of an object. S3 supports versioning, so you can have multiple versions of a file. And you can use the S3 access logs to track the access to your buckets and objects. S3 is a regional service but the name of a bucket is globally unique. Use S3 for static websites, data archives, analytics systems, and mobile applications.
+    def LOOKOUT: detect unexpected changes and identify root causes.
 
-      def S3 STORAGE CLASSES: Standard, which is recommended for frequently accessed data. Intelligent Tiering, which automatically moves your data to the most cost-effective storage class; recommended if you don't know how often you will be accessing your data. Standard Infrequent Access, which is recommended when you don't access something frequently but need to get it quickly at the time that you DO access it, especially long-lived data. One-Zone Infrequent Access, recommended for re-creatable data that is infrequently accessed; your data can be lost using this method because it's stored in only one AZ, but it's cheaper than S3 Standard-IA. Glacier, which is recommended for very long term backups at low cost; it takes a while to retrieve data from Glacier, and you have options of 1-5 minutes till retrieval, 3-5 hours, or 5-12 hours, with data stored across multiple AZs. Glacier Deep Archive, which is like Glacier but even cheaper, with access times of 12 or 48 hours; this is the cheapest S3 option and is recommended for things you access once or twice a year. Outposts, which is the storage option for AWS Outposts and is recommended for data that must be stored on-prem.
+    def MACIE: discover and protect your sensitive data
 
-     def SDK: software development kit. SDKs allow us to access AWS services through popular programming languages.
+    def MANAGED POLICY: a set of permissions pre-created either by aws or by an administrator for application to a user group.
 
-	 def SECRETS MANAGER: rotate, manage, and retrieve secrets. This is similar to github secrets, in the sense that it holds things that you can't just put into your code. So, for example: passwords, api keys, access tokens, ids to variou services such as a discord guild id, etc etc. It can do a lot of handy things that github secrets does not do, though. For example, it can change your passwords at regular intervals, both in the place where they're stored and on the service where they're being used.
+    def NEPTUNE:
 
-	 def SERVICE CATALOG: create, organize, and govern your own curated catalog of aws products.`
+    def NFS: network file system. This allows you to connect to files that aren't on your system but are on your network.
 
-     def SERVICE MODELS: IaaS, SaaS, and Paas. Respectively: Infrastructure as a service, Software as a service, and Platform as a service. IaaS provides fundamental building blocks. This includes web hosting, which is a monthly subscription to have a hosting company serve your website. SaaS is a complete product, offered to users on-demand over the internet. Your email provider is an example of SaaS. PaaS is used by developers to develop software without worrying about the underlying infrastructure. AWS Cloud9 is an example of this. A cloud-based environment that, for example, allowed you to develop a full-stack webapp in the cloud with its own cloud-based db and so on, would be PaaS.
+    def OPEX: operating expenditures. You run your server every day and incur a cost from the electricity. That's an operating expense.
 
-	 def SHIELD: prevent dos attacks
+    def OPSWORKS: integrates with Chef of Puppet to automatically configure servers in the cloud. You can deploy code and manage applications, manage on prem servers or EC2 instances.
 
-	 def SINGLE SIGN-on: implement cloud single sign-on
+    def ORGANIZATIONS: centrally manage and govern environments that span more than one account.
 
-     def SIX ADVANTAGES: 1) Go global in minutes. You can deploy your applications around the world at the touch of a button. 2) Stop spending money running and maintaining data centers. You can focus on building your applications instead of managing hardware. 3) Benefit from massive economies of scale. Volume discounts are passed down to you, which provides lower pay-as-you-go prices. 4) Increase speed and agility. The provided services allow you to innovate more quickly and deliver your applications faster. 5) Stop guessing capacity. Your capacity is matched exactly to your demand. 6) Trade capital expenses for variable expenses. You don't have to make huge up-front investments. Just pay as you go.
+    def OBJECT STORAGE: storing files in objects, each of which has a unique address.
 
-	 def SNOW FAMILY: bring your data into aws. You order devices, put files on them, and then ship them back to amazon.
+    def OPSWORKS: automate operations with chef and puppet.
 
-	 def STATEMENT: if you look at the json definition of a permissions policy, the statement is a map containing all the relevant things that will be applies. For example, if the resource key as a value of *, then the policy will be applied to all resources. We might see a pattern like action: a, resource: b, effect: c, which says that action a is subject to effect c for resource b.
+    def OUTPOSTS: run amazon services on your own hardware. Supports workloads that must remain on-prem for reasons of latency or data sovereignty. AWS will deliver and install servers into your local data center. Used for a hybrid experience. Have access to cloud services and APIs to develop apps on-prem.
 
-	 def STORAGE GATEWAY: a way to allow on-premise access to cloud storage. This includes file gateway, which lets us program our apps to store files remotely even if they're set up to only put things on disk. There is also tape gateway. This presents a virtual tape library on your system, which can be used to migrate data if you have anything stored on magnetic tape. Fially, we have volume gateway. Volume gateway is block storage that can run in cached mode or stored mode. In cached mode, your data is mostly stored in s3 with the most frequently accessed data being stored locally. In stored mode, everything is stored locally, and also asynchronously backed up to s3.
+    def PERSONALIZE: give personalized recommendations.
 
-      def SSH: Secure SHell. We use this with a key pair to access an EC2 instance.
+    def POLY: text-to-speech.
 
-      def STATIC WEBSITE: a website is static if all of its content runs on the client machine or in the browser with no need to go back to the server, and dynamic otherwise.
+    def PRIVATELINK: provides private connections between vpcs and on-premises networks.
 
-	 def SYSTEMS manager: optimize performance and security while managing a large amount of systems.
+    def QUICKSIGHT: Build interactive dashboards and embed them in your applications.
 
-	 def TRANSFER FAMILY: sftp, ftp, ftps
+    def REKOGNITION: Analyze images and videos and extract meaning. Rekognition will take an image and return a list of things it thinks it sees in that image with confidence levels expressed as percentages. It can do content moderation for violent or adult imagery. It has a facial analysis feature, which can look at a face and say things about the person's mood. There's a celebrity recognition feature as well, and a face comparison feature to see if two faces match. It also lets you detect personal protective equipment, or ppe.
 
-	 def TRANSIT gateways: connect vpc and on-premises networks.
+    def RDS: set up and scale database engines. You can use mysql, maria, microsoft sql server, postgres, oracle, and aurora. This is a fully managed service, so you don't have to set up anything. Databases created with rds are scalable and can be used across zones. It lets you create read-only copies of your database in order to increase read throughput. Rds has automatic host replacement, so if any instance running your db fails, it is replaced automatically. You can stop your instances for up to seven days at a time to save money.
 
-	 def VMWARE CLOUD on aws: migrate vmware workloads to aws.
+    def REDSHIFT: cloud data warehouse. Improved speed an efficiency on an exabyte scale.
 
-	 def VPC: define and provision an isolated network for your aws services. Vpc stands for virtual private cloud. It lets you create a virtual network in a local ip address range. That local network is called the ipv4 cidr block. If you create an ec2 server, amazon will ask which vpc you want it to join. A nat gateway will let your virtual machines access the internet and an internet gateway will allows the internet to access your ec2 instances. Each vpc also has an acl, or access control list. This is pretty much what it sounds like: a system for controlling which traffic is allowed into and out of your vpc network. Interestingly, vpc-related commands live under the ec2 command in the aws cli. If we set a route within our vpc to 0.0.0.0/0, then any traffic not being sent locally will be sent to that route. By connecting this route to an internet gateway, we create a portal to the internet. The network access control list controls communication both between subnets and between subnets and the internet. When we deploy something and don't select a vpc, it will default to a default vpc.
+    def REGION: A collection of availability zones localized to a geographic region. A region has at least two availability zones. North america, south america, europe, africa, middle east, and asia-pacific. You should set up resources in the region closest to your users. Most resources are tied to a specific region. A region has a friendly name and a code name, e.g. US East (Ohio) us-east-2.
 
-	 def WAVELENGTH: access aws services via 5g without going through the internet.
+    def RESOURCE: an instance of an amazon service.
 
-	 def WEB APPLICATION firewall: filter malicious website traffic.
+    def ROLE: in aws iam, a role is similar to giving a user permissions. The difference is that both users and services can assume the role and take on whatever special permissions are granted.
 
-	 def XRAY: analyze and debug production applications.
+    def ROOT USER: the root user is created when you first create an AWS account and is tied to the email address used to make the account. It should not be used for day-to-day activities. There are certain things that only root can do, such as deleting your account. Root should always be protected by MFA.
+
+    def ROUTE53: host your own managed dns. Costs 53 cents/domain/month. When we map an ip address to a domain name, we have to pick a routing policy. The standard policy is like a normal dns: user requests an ip for a domain name, gets an ip back. Simple. You can also use a weighted policy, where a certain proportion of users will get one ip while the rest of the users get another. This is one way to test out a new version of your website, for example. If one target of route53 is offline, it can shunt that traffic elsewhere. It can also check whether the ip address it responds with is actually healthy. It provides domain name registration, performs health checks on aws resources, and supports hybrid cloud architectures.
+
+    def SAGEMAKER: train and deploy deep-learning instances. e.g. a recommendation engine.
+
+    def S3: a fancied-up way of writing sss, which stands for secret storage service. A way to store and retrieve stuff, basically. It uses object based storage where you can access a file so long as you have the id of that file. It's reliable because it stores multiple copies of the file in multiple places. S3 is region dependent, so s3 buckets are created inside of a particular region. Policies around permissions can be attached to s3 buckets and only apply to the things inside of or accessing those buckets. Each bucket is a top-level folder in s3. Each prefix is a folder in a bucket. An object is any item in an s3 bucket. S3 can also be programmed to serve simple websites by simply having a user connect directly to your S3 bucket. Security can be set at the level of the bucket or at the level of an object. S3 supports versioning, so you can have multiple versions of a file. And you can use the S3 access logs to track the access to your buckets and objects. S3 is a regional service but the name of a bucket is globally unique. Use S3 for static websites, data archives, analytics systems, and mobile applications.
+
+    def S3 STORAGE CLASSES: Standard, which is recommended for frequently accessed data. Intelligent Tiering, which automatically moves your data to the most cost-effective storage class; recommended if you don't know how often you will be accessing your data. Standard Infrequent Access, which is recommended when you don't access something frequently but need to get it quickly at the time that you DO access it, especially long-lived data. One-Zone Infrequent Access, recommended for re-creatable data that is infrequently accessed; your data can be lost using this method because it's stored in only one AZ, but it's cheaper than S3 Standard-IA. Glacier, which is recommended for very long term backups at low cost; it takes a while to retrieve data from Glacier, and you have options of 1-5 minutes till retrieval, 3-5 hours, or 5-12 hours, with data stored across multiple AZs. Glacier Deep Archive, which is like Glacier but even cheaper, with access times of 12 or 48 hours; this is the cheapest S3 option and is recommended for things you access once or twice a year. Outposts, which is the storage option for AWS Outposts and is recommended for data that must be stored on-prem.
+
+    def SDK: software development kit. SDKs allow us to access AWS services through popular programming languages.
+
+    def SECRETS MANAGER: rotate, manage, and retrieve secrets. This is similar to github secrets, in the sense that it holds things that you can't just put into your code. So, for example: passwords, api keys, access tokens, ids to variou services such as a discord guild id, etc etc. It can do a lot of handy things that github secrets does not do, though. For example, it can change your passwords at regular intervals, both in the place where they're stored and on the service where they're being used.
+
+    def SERVICE CATALOG: create, organize, and govern your own curated catalog of aws products.`
+
+    def SERVICE MODELS: IaaS, SaaS, and Paas. Respectively: Infrastructure as a service, Software as a service, and Platform as a service. IaaS provides fundamental building blocks. This includes web hosting, which is a monthly subscription to have a hosting company serve your website. SaaS is a complete product, offered to users on-demand over the internet. Your email provider is an example of SaaS. PaaS is used by developers to develop software without worrying about the underlying infrastructure. AWS Cloud9 is an example of this. A cloud-based environment that, for example, allowed you to develop a full-stack webapp in the cloud with its own cloud-based db and so on, would be PaaS.
+
+    def SHIELD: prevent dos attacks
+
+    def SINGLE SIGN-on: implement cloud single sign-on
+
+
+    def SITE-TO-SITE VPN: site-to-site VPN is similar to Direct Connect, but the data travels over the public internet. Said data is automatically encrypted, however. It connects your on-prem data to AWS and supports a hybrid environment. So, similar to Direct Connect, but over the public internet. Cheaper than Direct Connect. The VIRTUAL PRIVATE GATEWAY connects the AWS Cloud services to the VPN, while the CUSTOMER GATEWAY connects the customer (at the other end) to the vpn.
+
+    def SIX ADVANTAGES: 1) Go global in minutes. You can deploy your applications around the world at the touch of a button. 2) Stop spending money running and maintaining data centers. You can focus on building your applications instead of managing hardware. 3) Benefit from massive economies of scale. Volume discounts are passed down to you, which provides lower pay-as-you-go prices. 4) Increase speed and agility. The provided services allow you to innovate more quickly and deliver your applications faster. 5) Stop guessing capacity. Your capacity is matched exactly to your demand. 6) Trade capital expenses for variable expenses. You don't have to make huge up-front investments. Just pay as you go.
+
+    def SMS: server migration service. Migrate on-prem servers to AWS. Save your server as a new AMI and launch an EC2 instance into it.
+
+    def SNOW FAMILY: bring your data into aws. You order devices, put files on them, and then ship them back to amazon. Devices are called snowcones, snowballs, and snowmobiles, with snowmobiles being a literal freaking semi truck full of data-bearing devices. A snowcone holds 8TB of usable storage. Snowball is petabyte-scale and cheaper than internet transfer. It's also an edge computing device that allows for EC2 and lambda functionality. Snowmobile is peta or exabyte-scale and is frequently used to migrate on-prem wholesale to AWS.
+
+    def STATEMENT: if you look at the json definition of a permissions policy, the statement is a map containing all the relevant things that will be applies. For example, if the resource key as a value of *, then the policy will be applied to all resources. We might see a pattern like action: a, resource: b, effect: c, which says that action a is subject to effect c for resource b.
+
+    def STORAGE GATEWAY: a way to allow on-premise access to cloud storage. This includes file gateway, which lets us program our apps to store files remotely even if they're set up to only put things on disk. There is also tape gateway. This presents a virtual tape library on your system, which can be used to migrate data if you have anything stored on magnetic tape. Fially, we have volume gateway. Volume gateway is block storage that can run in cached mode or stored mode. In cached mode, your data is mostly stored in s3 with the most frequently accessed data being stored locally. In stored mode, everything is stored locally, and also asynchronously backed up to s3.
+
+    def SSH: Secure SHell. We use this with a key pair to access an EC2 instance.
+
+    def STATIC WEBSITE: a website is static if all of its content runs on the client machine or in the browser with no need to go back to the server, and dynamic otherwise.
+
+    def SYSTEMS manager: optimize performance and security while managing a large amount of systems.
+
+    def TRANSFER FAMILY: sftp, ftp, ftps
+
+    def TRANSIT gateways: connect vpc and on-premises networks.
+
+    def TRANSLATE: Provides language translation. No kidding!
+
+    def VMWARE CLOUD on aws: migrate vmware workloads to aws.
+
+    def VPC: define and provision an isolated network for your aws services. Vpc stands for virtual private cloud. It lets you create a virtual network in a local ip address range. That local network is called the ipv4 cidr block. If you create an ec2 server, amazon will ask which vpc you want it to join. A nat gateway will let your virtual machines access the internet and an internet gateway will allows the internet to access your ec2 instances. Each vpc also has an acl, or access control list. This is pretty much what it sounds like: a system for controlling which traffic is allowed into and out of your vpc network. Interestingly, vpc-related commands live under the ec2 command in the aws cli. If we set a route within our vpc to 0.0.0.0/0, then any traffic not being sent locally will be sent to that route. By connecting this route to an internet gateway, we create a portal to the internet. The network access control list controls communication both between subnets and between subnets and the internet. When we deploy something and don't select a vpc, it will default to a default vpc. Both tags and subnets depend on VPCs, in the sense that you must first create a VPC and then create and attach a tag, or create a subnet for the VPC afterward. In the CLI, both the subnet and the tag require a VPC id to be created. Internet gateways are created independently, and are attached to a VPC after the fact. Route tables depend on a VPC and require a VPC id to be created. Individual routes, meanwhile, depend on a gateway and require an internet gateway id beginning with igw to be created. So we go VPC -> Subnet/Tag/Route Table (tag only if we want a name). Then we go Gateway -> Route. Then we associate the subnet with the route table. So the subnet is associated with the route table and the gateway is attached to the VPC. Meanwhile, the subnet, tag, and route table all depend on the VPC and the route depends on the gateway.
+
+    def WAVELENGTH: access aws services via 5g without going through the internet.
+
+    def WEB APPLICATION firewall: filter malicious website traffic.
+
+    def XRAY: analyze and debug production applications.
