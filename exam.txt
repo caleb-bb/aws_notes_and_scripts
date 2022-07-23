@@ -35,6 +35,7 @@ Cloud computing breaks down into compute (EC2, Lambda), networking (VPC, direct 
 There is a very important whitepaper called Overview of Amazon Web Services. This is a full list of AWS services. 72 pages. Read and take notes! Goal: rewrite the entire whitepaper and write a small app that will quiz you on it.
 
 THINGS TO REMEMBER BEFORE EXAM:
+    def artifact
     def availability zone
     def auto scaling
     def batch
@@ -42,10 +43,16 @@ THINGS TO REMEMBER BEFORE EXAM:
     def cloud deployment models
     def cloud9
     def cloudformation
+    def cloudhsm
+    def cloutrail
+    def cloudwatch
     def codecommit
     def codedeploy
     def codepipeline
+    def cognito
     def comprehend
+    def config
+    def connect
     def ebs
     def ec2 pricing - .*
     def ec2:
@@ -53,11 +60,18 @@ THINGS TO REMEMBER BEFORE EXAM:
     def efs
     def elastic beanstalk
     def fargate
+    def guard duty
     def high availability
+    def iam:
+    def iam best practices
+    def iam credential report
+    def inspector
     def instance store
+    def kms
     def lambda
     def lightsail
     def load balancing
+    def macie
     def opsworks
     def outposts
     def region
@@ -66,7 +80,14 @@ THINGS TO REMEMBER BEFORE EXAM:
     def route53
     def s3:
     def s3 storage classes
+    def secrets manager
+    def ses
+    def shield
     def site-to-site vpn
     def six advantages
+    def sns
+    def sqs
     def ssh
     def storage gateway
+    def waf
+    def workspaces

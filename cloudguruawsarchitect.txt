@@ -6,6 +6,8 @@
 
     def ARN: amazon resource name. Every resource has an arn.
 
+    def ARTIFACT: on-demand acces to aws security and compliance reports. Central repository for third-party compliance reports from other auditors. Service organization control (SOC) reports. Payment card industry (PCI) reports. AWS is certified for many different compliance standards and artifact will give you access to records and proofs of those certifications should one be requested.
+
     def ATHENA: a query service. Analyze S3 data using SQL. Pay per query. Serverless.
 
     def AURORA: a mysql and postgres compatible cloud db
@@ -30,20 +32,19 @@
 
     def CLOUD9: write code directly in web browser. Can be used with lambda.
 
-    def CLOUD HSM: hardware-based key storage.
+    def CLOUD DEPLOYMENT MODELS: There are three cloud deployment models. 1) Private cloud, aka on-premises. This does not offer the 6 advantages of cloud computing. 2) Public cloud, such as AWS, Azure, Google Cloud, etc. Provides all the advantages of cloud computing. 3) Hybrid cloud. A mix of 1 and 2. This is primarily used to store highly sensitive data on-prem and then serve the app via the cloud. It is powered by Direct Connect.
+
+    def CLOUDHSM: hardware-based key storage. Generate and use your own encryption keys. AWS will give you the encryption hardware so nobody has access to your keys but you.
 
     def CLOUDFRONT: whenever a client requests something from your website, it will access cloudfront first. Cloudfront will direct that traffic to the nearest available location. So if someone in timbuktu accesses your site, they'll be served via resources closer to timbuktu. Cloudfront also protects you when some jerk tries to ddos you. Cloudfront also offers lambda@edge, which lets you run lambdas near your clients.
 
-    def CLOUD DEPLOYMENT MODELS: There are three cloud deployment models. 1) Private cloud, aka on-premises. This does not offer the 6 advantages of cloud computing. 2) Public cloud, such as AWS, Azure, Google Cloud, etc. Provides all the advantages of cloud computing. 3) Hybrid cloud. A mix of 1 and 2. This is primarily used to store highly sensitive data on-prem and then serve the app via the cloud. It is powered by Direct Connect.
-
     def CLOUDFORMATION: model and provision all of your resources using code. This is an iac service that will allow you to use both json and yaml. This brings all the benefits of iac. For example, if we can create a text file that codes for our infrastructure and check it into a git repo, we effectively have versioning for our entire cloud infra. Cloudformation supports nested templates, which means we can have one master template that calls all the others. This gives us certain options, e.g. Localizing individual templates to different teams and having the master template to pull them all together. Cloudformation lets us use the same template in multiple regions which saves us from having to duplicate our infrastructure for different regions. When we create  stack, we can assign "tags" to it, which are key-value pairs. Tags let us keep track of certain information about the stack e.g. what team it belongs to or who created it. If you specify a logical resource without giving it an id, then cloudformation will happily generate a unique id using this structure: <stack name>-<logical resource name>-<randomly-generated UID>.
-
 
     def CLOUDFFRONT: a CDN (content delivery network) that delivers data and applications globally and with low latency.
 
-    def CLOUDTRAIL: track api usage and user activity across all accounts.
+    def CLOUDTRAIL: track api usage and user activity across all accounts. Log and retain account activity. Track activity through the console, SDK and CLI. Identify which user made changes. Detect unusual activity in your account. Track user, event time, ip address, access  key, region, error code. Memorize those: 1) User, 2) Event name and time, 3) IP, 4) access key, 5) region, 6) error code.
 
-    def CLOUDWATCH: observe services via metrics and logging. There are about 70 aws services that cloudwatch can deal with. It automatically collects all your services and displays them for you in graph form so you can see what is getting used, when, and how much. An example is instructive: suppose that you have an EC2 instance, and we want to protect it from SSH attacks. We can send out SSH login logs to CloudWatch, and then filter those logs only for failed logins. If those failed logins exceed a certain threshold, we can set an alarm to take some action we specify. We can also track our AWS spending on cloudwatch, to avoid exceeding certain amounts.
+    def CLOUDWATCH: observe services via metrics and logging. There are about 70 aws services that cloudwatch can deal with. It automatically collects all your services and displays them for you in graph form so you can see what is getting used, when, and how much. An example is instructive: suppose that you have an EC2 instance, and we want to protect it from SSH attacks. We can send out SSH login logs to CloudWatch, and then filter those logs only for failed logins. If those failed logins exceed a certain threshold, we can set an alarm to take some action we specify. We can also track our AWS spending on cloudwatch, to avoid exceeding certain amounts. We create a topic that entities can subscribe to in order to be notified when our topic publishes something.
 
     def CODEBUILD: Compile source, run tests, CI/CD, produce build artifacts to deploy.
 
@@ -57,11 +58,13 @@
 
     def CODESTAR: helps developers collaboratively work on development projects. Contains an issue tracking dashboard.
 
-    def COGNITO: manage identity inside applications
+    def COGNITO: manage identity inside applications.  Authentication and authorization. Helps you manage users. Assists with user sign-up and sign-in.
 
     def COMPREHEND: NLP
 
-    def CONFIG: record and evaluation configurations of your aws resources.
+    def CONNECT: Cloud contact center service. Provides customer service functionality and improves productivity of help desk agents.
+
+    def CONFIG: record and evaluation configurations of your aws resources. Track configuration over time. Create and generate a history file. Set it up to send you notifications. Suppose you have system-level configurations on an EC2 instance. You could use config there.
 
     def CONTAINER: think of a container as a little self-contained computer in which your program can run. It contains your code and all of the libraries it needs. This makes it possible to run your code without dealing with pesky conflicts arising from versions. The container's big benefit is that it guarantees the ability to run the code anywhere where containers can run and still work the same way.
 
@@ -143,15 +146,19 @@
 
     def GLUE: ETL service, prepare and load data, help understand data better.
 
-    def GUARD DUTY: automatiacally detect threats.
+    def GUARD DUTY: automatiacally detect threats. Uses machine learning. Built-in detection for ec2, s3, and iam. Reviews Cloudtrail, VPC flow logs, and DNS logs. Real-world case: detect suspicious API calls and notify you.
 
     def HIGH AVAILABILITY: Being deployed in multiple availability zones makes a system highly available. Highly available systems are designed to operate continuously without failure for a long time. These systems avoid loss of service by reducing or managing failures.
 
-    def IAM: securely manage access to aws account and resources. Manage who can access what in your aws accounts. Create users and groups. Allow or deny access via policies. Free service in all aws accounts. Two of iam's biggest features are users and roles. Iam is free with any aws account. The main account you log into your aws resources with is the root account, which you are given when you first register. An iam user is just a user that is not root, whose privileges are decided by whoever creates the iam user (the root account). Permissions can also be given to groups, and from there given to individual users by adding those users to the groups with the appropriate permissions. Policies are defined as json objects, although there's also a visual editor if you need it.
+    def IAM: securely manage access to aws account and resources. Manage who can access what in your aws accounts. Create users and groups. Allow or deny access via policies. Free service in all aws accounts. Two of iam's biggest features are users and roles. Iam is free with any aws account. The main account you log into your aws resources with is the root account, which you are given when you first register. An iam user is just a user that is not root, whose privileges are decided by whoever creates the iam user (the root account). Permissions can also be given to groups, and from there given to individual users by adding those users to the groups with the appropriate permissions. Policies are defined as json objects, although there's also a visual editor if you need it. Secure your cloud resources. Define user access and capabilities. An identity defines who can access your resources, such as root and admin and so on. Capabilities are what they can do once connected. Authentication means who and authorization means what. Policies define authorizations, e.g. "can I view the s3 bucket?" We can create root user, individual users, and applications, which can also be users. Our policies should provide the lowest privileges possible to follow the principle of least privilege. We can define access privileges by which resources the user can access. IAM can generate SSH access keys for EC2 instances. A group is a collection of users. Groups can have assigned privileges. Remember: EC2 groups are firewalls, while IAM groups are collections of users. Real world use cases include dividing users into administrators, developers, and analysts.
+
+    def IAM BEST PRACTICES: 1) Enable MFA for privileged users, such as root and administrators. 2) Implement strong password policies. 3) Create individual users instead of using root. Don't use the root user for daily tasks. 4) Use roles for Amazon EC2 instances. Roles replace long-term credentials, such as access keys.
+
+    def IAM CREDENTIAL REPORT: 1) List all users and status of passwords, access keys, and MFA devices. Used for auditing and compliance.
 
     def INLINE POLICY: a set of permissions assigned just to one user or one group, not like a re-usable managed policy.
 
-    def INSPECTOR: analyze application security.
+    def INSPECTOR: analyze application security. Uncover vulnerabilities and report them automatically. Vulnerable software versions, for example, would be reported.
 
     def INSTANCE: a virtual machine in the cloud.
 
@@ -162,6 +169,8 @@
     def KEY MANAGEMENT service: store and manage encryption keys.
 
     def KINESIS: analyze streaming data in real time, such as video and audio, clickstreams, and iot.
+
+    def KMS: Key management service. Allows you to generate and store encryption keys. AWS manages encryption keys. KMS is automatically enabled for certain services.
 
     def LATENCY: latency is the time that passes between a user request and the resulting response.
 
@@ -177,7 +186,9 @@
 
     def LOOKOUT: detect unexpected changes and identify root causes.
 
-    def MACIE: discover and protect your sensitive data
+    def LOOSE COUPLING: components do not depend too much on one another. Microservice applications take advantage of loose coupling to build more robust applications.
+
+    def MACIE: discover and protect your sensitive data. Uses machine learning behind the scenes and detects sensitive data.
 
     def MANAGED POLICY: a set of permissions pre-created either by aws or by an administrator for application to a user group.
 
@@ -199,6 +210,8 @@
 
     def PERSONALIZE: give personalized recommendations.
 
+    def POLICY: we manage permissions for IAM users, groups and roles, by creating a policy document in JSON format and attaching it to a user. We can also attach that document to groups or roles.
+
     def POLY: text-to-speech.
 
     def PRIVATELINK: provides private connections between vpcs and on-premises networks.
@@ -215,7 +228,7 @@
 
     def RESOURCE: an instance of an amazon service.
 
-    def ROLE: in aws iam, a role is similar to giving a user permissions. The difference is that both users and services can assume the role and take on whatever special permissions are granted.
+    def ROLE: in aws iam, a role is similar to giving a user permissions. The difference is that both users and services can assume the role and take on whatever special permissions are granted. We assume a role to complete a task in a single session. A role can be assumed by any user or service that needs it. Access for roles is assigned using policies. You grant users in one AWS account access to resources in another AWS account.
 
     def ROOT USER: the root user is created when you first create an AWS account and is tied to the email address used to make the account. It should not be used for day-to-day activities. There are certain things that only root can do, such as deleting your account. Root should always be protected by MFA.
 
@@ -235,10 +248,13 @@
 
     def SERVICE MODELS: IaaS, SaaS, and Paas. Respectively: Infrastructure as a service, Software as a service, and Platform as a service. IaaS provides fundamental building blocks. This includes web hosting, which is a monthly subscription to have a hosting company serve your website. SaaS is a complete product, offered to users on-demand over the internet. Your email provider is an example of SaaS. PaaS is used by developers to develop software without worrying about the underlying infrastructure. AWS Cloud9 is an example of this. A cloud-based environment that, for example, allowed you to develop a full-stack webapp in the cloud with its own cloud-based db and so on, would be PaaS.
 
+    def SES: Simple email service. lets you send richly formatted html emails, unlike SNS.
+
+    def SHARED RESPONSIBILITY MODEL: AWS is responsible for security OF the cloud, while you are responsible for security IN the cloud.
+
     def SHIELD: prevent dos attacks
 
     def SINGLE SIGN-on: implement cloud single sign-on
-
 
     def SITE-TO-SITE VPN: site-to-site VPN is similar to Direct Connect, but the data travels over the public internet. Said data is automatically encrypted, however. It connects your on-prem data to AWS and supports a hybrid environment. So, similar to Direct Connect, but over the public internet. Cheaper than Direct Connect. The VIRTUAL PRIVATE GATEWAY connects the AWS Cloud services to the VPN, while the CUSTOMER GATEWAY connects the customer (at the other end) to the vpn.
 
@@ -247,6 +263,12 @@
     def SMS: server migration service. Migrate on-prem servers to AWS. Save your server as a new AMI and launch an EC2 instance into it.
 
     def SNOW FAMILY: bring your data into aws. You order devices, put files on them, and then ship them back to amazon. Devices are called snowcones, snowballs, and snowmobiles, with snowmobiles being a literal freaking semi truck full of data-bearing devices. A snowcone holds 8TB of usable storage. Snowball is petabyte-scale and cheaper than internet transfer. It's also an edge computing device that allows for EC2 and lambda functionality. Snowmobile is peta or exabyte-scale and is frequently used to migrate on-prem wholesale to AWS.
+
+    def SNS: simple notification service. Send email and text messages. Publish messages to a topic. Subscribers receive messages. This appears to be a pubsub implementation.
+
+    def SQS: Simple queue service. Allows component-to-component communication using messages. Multiple components or producers can add messages to the queue. Messages are processed in an asynchronous manner. Uses a FIFO (first in first out) system. Message queues are a way to support loose coupling.
+
+    def SHIELD: protects from DDOS. Managed. It has an always on detection feature, shield standard is free, and shield advanced costs extra. Shield advanced gives you access to security experts. Can give you real-time notifications of suspected DDOS incidents.
 
     def STATEMENT: if you look at the json definition of a permissions policy, the statement is a map containing all the relevant things that will be applies. For example, if the resource key as a value of *, then the policy will be applied to all resources. We might see a pattern like action: a, resource: b, effect: c, which says that action a is subject to effect c for resource b.
 
@@ -268,8 +290,14 @@
 
     def VPC: define and provision an isolated network for your aws services. Vpc stands for virtual private cloud. It lets you create a virtual network in a local ip address range. That local network is called the ipv4 cidr block. If you create an ec2 server, amazon will ask which vpc you want it to join. A nat gateway will let your virtual machines access the internet and an internet gateway will allows the internet to access your ec2 instances. Each vpc also has an acl, or access control list. This is pretty much what it sounds like: a system for controlling which traffic is allowed into and out of your vpc network. Interestingly, vpc-related commands live under the ec2 command in the aws cli. If we set a route within our vpc to 0.0.0.0/0, then any traffic not being sent locally will be sent to that route. By connecting this route to an internet gateway, we create a portal to the internet. The network access control list controls communication both between subnets and between subnets and the internet. When we deploy something and don't select a vpc, it will default to a default vpc. Both tags and subnets depend on VPCs, in the sense that you must first create a VPC and then create and attach a tag, or create a subnet for the VPC afterward. In the CLI, both the subnet and the tag require a VPC id to be created. Internet gateways are created independently, and are attached to a VPC after the fact. Route tables depend on a VPC and require a VPC id to be created. Individual routes, meanwhile, depend on a gateway and require an internet gateway id beginning with igw to be created. So we go VPC -> Subnet/Tag/Route Table (tag only if we want a name). Then we go Gateway -> Route. Then we associate the subnet with the route table. So the subnet is associated with the route table and the gateway is attached to the VPC. Meanwhile, the subnet, tag, and route table all depend on the VPC and the route depends on the gateway.
 
+    def WAF: web application framework that protects you against sql injection, cross-site scripting. WAF can be deployed in multiple places, such as on a webapp on EC2 or as part of a CDN on cloudfront. It can stand in front of Cloudfront or in front of your load balancer.
+
     def WAVELENGTH: access aws services via 5g without going through the internet.
 
     def WEB APPLICATION firewall: filter malicious website traffic.
+
+    def WELL ARCHITECTED FRAMEWORK: The concept of a good framework. Six pillars it hath: 1) Operational excellence, which means creating applications that effectively support production workloads. We plan for and anticipate failure, deploy smaller and reversible changes, script operations as code, learn from failure and refine. 2) Security, which means putting mechanisms in place which will protect your data. Automate security tasks. Encrypt data in transit and at rest. Assign only the least privileges required. Track who did what and when. Ensure security at all application layers. 3) Reliability, which basically means high availability and fault tolerance. Recover from failure automatically. Scale horizontally (adding more machines) for resilience. Reduce idle resources. Manage change through automation. Test recovery procedures. 4) Performance efficiency, which means effective use of computing resources to meet business and system requirements while removing bottlenecks. Use serverless architectures first. Use multi-region deployments. Delegate tasks to a cloud vendor, experiment with virtual resources. 5) Cost Optimization, which means delivering optmimum and resilient solutions at lowest cost to user. Utilize consumption-based pricing. Implement Cloud Financial Management. Measure overall efficiency. Pay only for resources your application requires. 6) Sustainability, which means environmental impacts, especially energy consumption and efficiency. Understand your impact. Establish sustainability goals. Maximize utilization. Use managed services. Reduce downstream impact.
+
+    def WORSKPACES: Virtual windows or linux desktops in the cloud.
 
     def XRAY: analyze and debug production applications.
